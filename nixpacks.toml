@@ -7,5 +7,19 @@ cmds = [
   "npm install"
 ]
 
-[phases.start]
+[start]
 cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
+
+[env]
+APP_NAME = "Laravel"
+APP_ENV = "production"
+APP_DEBUG = "false"
+APP_URL = "https://your-app-name.up.railway.app" # update with Railway project URL
+APP_KEY = "base64:4sqFxB45i6Nyof6/bwkeYEu3YWjsXK/VnhJQXCRfbK4="            # use `php artisan key:generate --show`
+
+DB_CONNECTION = "mysql"
+DB_HOST = "mainline.proxy.rlwy.net"
+DB_PORT = "28711"
+DB_DATABASE = "railway"
+DB_USERNAME = "root"
+DB_PASSWORD = "CpoQotPPiACXegJYSQoMuKdhadbwucxV"
