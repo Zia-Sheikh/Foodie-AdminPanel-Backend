@@ -22,7 +22,7 @@ class RestaurantController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Restaurant';
+    protected $title = 'Home Chef';
 
     /**
      * Make a grid builder.
@@ -34,8 +34,8 @@ class RestaurantController extends AdminController
         $grid = new Grid(new Restaurant());
 
         $grid->column('id', __('Id'));
-        $grid->column('restaurant_name', __('Restaurant Name'));
-        $grid->column('restaurant_image', __('Restaurant Image'))->image();
+        $grid->column('restaurant_name', __('HomeChef Name'));
+        $grid->column('restaurant_image', __('HomeChef Image'))->image();
         $grid->column('contact_person_name', __('Contact Person Name'));
         //$grid->column('restaurant_phone_number', __('Restaurant Phone Number'));
         $grid->column('phone_with_code', __('Phone With Code'));
