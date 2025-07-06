@@ -60,7 +60,7 @@ class CustomerController extends AdminController
         $grid->filter(function ($filter) {
             //Get All status
         $filter->like('customer_name', __('Customer name'));
-        $filter->like('profile_picture', __('Profile picture'));
+        // $filter->like('profile_picture', __('Profile picture'));
         $filter->like('email', __('Email'));
         // $filter->like('password', __('Password'));
         // $filter->like('fcm_token', __('Fcm token'));

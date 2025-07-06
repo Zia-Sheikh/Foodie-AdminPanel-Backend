@@ -66,8 +66,8 @@ class DeliveryBoyController extends AdminController
             //Get All status
         $filter->like('delivery_boy_name', __('Delivery boy name'));
         $filter->like('email', __('Email'));
-        $filter->like('phone_number', __('Phone Number'));
-        $filter->equal('status', 'Status')->select($statuses);
+        // $filter->like('phone_number', __('Phone Number'));
+        // $filter->equal('status', 'Status')->select($statuses);
 
 
         });
