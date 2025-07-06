@@ -125,9 +125,9 @@ class RestaurantController extends AdminController
         $form = new Form(new Restaurant());
          $statuses = Status::pluck('status_name', 'id');
 
-        $form->text('restaurant_name', __('Restaurant Name'))->rules('required|max:150');
+        $form->text('restaurant_name', __('Home Chef Name'))->rules('required|max:150');
         // $form->text('restaurant_name_ar', __('Restaurant Name Ar'));
-        $form->image('restaurant_image', __('Restaurant Image'))->move('restaurants')->uniqueName()->rules('required');
+        $form->image('restaurant_image', __('Home Chef Image'))->move('restaurants')->uniqueName()->rules('required');
         $form->textarea('manual_address', __('Manual Address'))->rules('required');
         $form->textarea('google_address', __('Google Address'));
         $form->text('contact_person_name', __('Contact Person Name'))->rules('required|max:150');
@@ -139,7 +139,7 @@ class RestaurantController extends AdminController
         });
 
         $form->select('is_open', __('Is open'))->options(['1' => 'Opened', '0'=> 'Closed'])->default('0')->rules('required');
-        $form->password('password', __('Password'))->rules('required|max:250')->hide();
+        // $form->password('password', __('Password'))->rules('required|max:250');
         $form->text('username', __('Username'))->rules('required|max:150');
         $form->text('licence_no', __('Licence Number'))->rules('required');
         $form->text('lat', __('Latitude'))->rules('required|max:150');
