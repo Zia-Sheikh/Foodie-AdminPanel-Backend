@@ -34,13 +34,13 @@ class CustomerController extends AdminController
         $grid->column('email', __('Email'));
      
         $grid->column('phone_with_code', __('Phone With Code'));
-        $grid->column('referral_code', __('Referral Code'));
-        $grid->column('refered_by', __('Refered By'))->display(function($refered_by){
-            $refered_by = Customer::where('id',$refered_by)->value('customer_name');
-            if(!$refered_by){
-                return '----';
-            }
-        });
+        // $grid->column('referral_code', __('Referral Code'));
+        // $grid->column('refered_by', __('Refered By'))->display(function($refered_by){
+        //     $refered_by = Customer::where('id',$refered_by)->value('customer_name');
+        //     if(!$refered_by){
+        //         return '----';
+        //     }
+        // });
         $grid->column('status', __('Status'))->display(function($status){
             $status_name = Status::where('id',$status)->value('status_name');
             if ($status == 1) {
@@ -52,6 +52,7 @@ class CustomerController extends AdminController
     
 
         $grid->disableExport();
+        $grid->disableCreateButton();
         $grid->actions(function ($actions) {
             $actions->disableView();
         });
@@ -61,9 +62,9 @@ class CustomerController extends AdminController
         $filter->like('customer_name', __('Customer name'));
         $filter->like('profile_picture', __('Profile picture'));
         $filter->like('email', __('Email'));
-        $filter->like('password', __('Password'));
-        $filter->like('fcm_token', __('Fcm token'));
-        $filter->like('phone_number', __('Phone number'));
+        // $filter->like('password', __('Password'));
+        // $filter->like('fcm_token', __('Fcm token'));
+        // $filter->like('phone_number', __('Phone number'));
         $filter->like('overall_rating', __('Overall rating'));
 
         });
@@ -115,7 +116,7 @@ class CustomerController extends AdminController
             return 'required|max:150';
         });
 
-        $form->password('password', __('Password'))->rules('required');
+        // $form->password('password', __('Password'))->rules('required');
         $form->text('phone_number', __('Phone Number'))->rules(function ($form) {
             return 'numeric|required';
         });
