@@ -70,7 +70,7 @@ class RestaurantController extends AdminController
         $statuses = Status::pluck('status_name', 'id');
 
         
-        $filter->like('restaurant_name', __('Restaurant Name'));
+        $filter->like('restaurant_name', __('HomeChef Name'));
         $filter->like('address', __('Address'));
         $filter->like('contact_person_name', __('Contact Person Name'));
         $filter->equal('contact_person_phone_number', __('Contact Person Phone Number'));
@@ -126,7 +126,7 @@ class RestaurantController extends AdminController
          $statuses = Status::pluck('status_name', 'id');
 
         $form->text('restaurant_name', __('Restaurant Name'))->rules('required|max:150');
-        $form->text('restaurant_name_ar', __('Restaurant Name Ar'));
+        // $form->text('restaurant_name_ar', __('Restaurant Name Ar'));
         $form->image('restaurant_image', __('Restaurant Image'))->move('restaurants')->uniqueName()->rules('required');
         $form->textarea('manual_address', __('Manual Address'))->rules('required');
         $form->textarea('google_address', __('Google Address'));
