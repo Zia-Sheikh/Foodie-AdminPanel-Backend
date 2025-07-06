@@ -55,6 +55,7 @@ class DeliveryBoyController extends AdminController
             });
         
         $grid->disableExport();
+        $grid->disableCreateButton();
         $grid->actions(function ($actions) {
             $actions->disableView();
         });
@@ -134,9 +135,9 @@ class DeliveryBoyController extends AdminController
         });
         $form->image('profile_picture', __('Profile Picture'))->uniqueName()->move('delivery_boys');
         //$form->text('fcm_token', __('Fcm token'))->rules('required');
-        $form->password('password', __('Password'))->rules(function ($form) {
-            return 'required';
-        });
+        // $form->password('password', __('Password'))->rules(function ($form) {
+        //     return 'required';
+        // });
    
         $form->select('status', __('Status'))->options(Status::where('slug','general')->pluck('status_name','id'))->rules(function ($form) {
             return 'required';
