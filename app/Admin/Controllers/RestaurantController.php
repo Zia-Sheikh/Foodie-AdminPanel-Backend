@@ -139,7 +139,7 @@ class RestaurantController extends AdminController
         });
 
         $form->select('is_open', __('Is open'))->options(['1' => 'Opened', '0'=> 'Closed'])->default('0')->rules('required');
-        $form->password('password', __('Password'))->rules('required|max:250');
+        $form->password('password', __('Password'))->rules('required|max:250')->hide();
         $form->text('username', __('Username'))->rules('required|max:150');
         $form->text('licence_no', __('Licence Number'))->rules('required');
         $form->text('lat', __('Latitude'))->rules('required|max:150');
