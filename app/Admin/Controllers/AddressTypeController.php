@@ -40,7 +40,7 @@ class AddressTypeController extends AdminController
         $grid->filter(function ($filter) {
             //Get All status
         $filter->like('type_name', __('Type name'));
-        $filter->like('icon', __('Icon'));
+        // $filter->like('icon', __('Icon'));
 
          });
 
@@ -59,9 +59,9 @@ class AddressTypeController extends AdminController
         $form->text('type_name', __('Type Name'))->rules(function ($form) {
             return 'required|max:150';
         });
-        $form->text('type_name_ar', __('Type Name Ar'))->rules(function ($form) {
-            return 'required|max:150';
-        });
+        // $form->text('type_name_ar', __('Type Name Ar'))->rules(function ($form) {
+        //     return 'required|max:150';
+        // });
 
         $form->image('icon', __('Icon'))->move('address_types')->uniqueName()->rules('required');
 
