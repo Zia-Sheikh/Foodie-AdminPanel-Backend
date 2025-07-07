@@ -74,9 +74,9 @@ class TagController extends AdminController
         $form->text('tag_name', __('Tag Name'))->rules(function ($form) {
             return 'required|max:150';
         });
-        $form->text('tag_name_ar', __('Tag Name Ar'))->rules(function ($form) {
-            return 'required|max:150';
-        });
+        // $form->text('tag_name_ar', __('Tag Name Ar'))->rules(function ($form) {
+        //     return 'required|max:150';
+        // });
 
 
         $form->tools(function (Form\Tools $tools) {
