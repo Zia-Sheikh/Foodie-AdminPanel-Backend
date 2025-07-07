@@ -41,10 +41,12 @@ class CustomerAppSettingController extends AdminController
             $actions->disableView();
         });
 
+        $grid->disableCreateButton();
+
         $grid->filter(function ($filter) {
             //Get All status
         $filter->like('app_name', __('App name'));
-        $filter->like('app_logo', __('App logo'));
+        // $filter->like('app_logo', __('App logo'));
 
          });
         return $grid;
