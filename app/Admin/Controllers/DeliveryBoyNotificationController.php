@@ -28,14 +28,14 @@ class DeliveryBoyNotificationController extends AdminController
         $grid = new Grid(new DeliveryBoyNotification());
 
         $grid->column('id', __('Id'));
-        $grid->column('destination_id', __('Destination '))->display(function($users){
-            if($users == 0){
-            return "NILL";
-            }else{
-                $users = DeliveryBoy::where('id',$users)->value('delivery_boy_name');
-            return $users;
-            }
-        });
+        // $grid->column('destination_id', __('Destination '))->display(function($users){
+        //     if($users == 0){
+        //     return "NILL";
+        //     }else{
+        //         $users = DeliveryBoy::where('id',$users)->value('delivery_boy_name');
+        //     return $users;
+        //     }
+        // });
         $grid->column('title', __('Title'));
         //$grid->column('description', __('Description'));
         $grid->column('image', __('Image'))->image();
@@ -48,7 +48,7 @@ class DeliveryBoyNotificationController extends AdminController
          $users = DeliveryBoy::pluck('delivery_boy_name', 'id');
 
          $filter->like('title', __('Title'));
-         $filter->equal('destination_id', __('Destination '))->select($users);
+        //  $filter->equal('destination_id', __('Destination '))->select($users);
          
         });
 
@@ -90,13 +90,14 @@ class DeliveryBoyNotificationController extends AdminController
         $users = DeliveryBoy::pluck('delivery_boy_name','id');
 
 
-        $form->select('destination_id', __('Destination '))->options($users);
+        // $form->select('destination_id', __('Destination '))->options($users);
+        $form->hidden('destination_id')->default(1);
         $form->text('title', __('Title')) ->rules(function ($form) {
             return 'required|max:500';
         });
         $form->textarea('description', __('Description'))->rules('required');
-        $form->text('title_ar', __('Title Ar'));
-        $form->textarea('description_ar', __('Description Ar'));
+        // $form->text('title_ar', __('Title Ar'));
+        // $form->textarea('description_ar', __('Description Ar'));
         $form->image('image', __('Image'))->uniqueName()->move('notifications')->rules('required');
         
         $form->saving(function ($form) {
