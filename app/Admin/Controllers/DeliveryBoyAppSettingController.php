@@ -45,7 +45,7 @@ class DeliveryBoyAppSettingController extends AdminController
         $grid->filter(function ($filter) {
             //Get All status
         $filter->like('app_name', __('App name'));
-        $filter->like('app_logo', __('App logo'));
+        // $filter->like('app_logo', __('App logo'));
 
          });
 
@@ -94,7 +94,7 @@ class DeliveryBoyAppSettingController extends AdminController
         $form->number('booking_searching_radius', __('Booking Searching Radius'))->rules('required');
         $form->decimal('delivery_charge_per_km', __('Delivery Charge Per KM'))->rules('required');
         $form->textarea('description', __('Description'))->rules('required');
-        $form->textarea('description_ar', __('Description Ar'))->rules('required');
+        // $form->textarea('description_ar', __('Description Ar'))->rules('required');
         $form->text('app_version', __('App Version'))->rules('required');
         $form->textarea('address', __('Address'))->rules('required');
         

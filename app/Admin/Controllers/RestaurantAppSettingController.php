@@ -15,7 +15,7 @@ class RestaurantAppSettingController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Restaurant App Settings';
+    protected $title = 'Home Chef App Settings';
 
     /**
      * Make a grid builder.
@@ -44,7 +44,7 @@ class RestaurantAppSettingController extends AdminController
         $grid->filter(function ($filter) {
             //Get All status
         $filter->like('app_name', __('App name'));
-        $filter->like('app_logo', __('App logo'));
+        // $filter->like('app_logo', __('App logo'));
 
          });
 
@@ -92,7 +92,7 @@ class RestaurantAppSettingController extends AdminController
         $form->text('currency_short_code', __('Currency Short Code'))->rules('required');
         $form->text('order_commission', __('Order Commission'))->rules('required');
         $form->textarea('description', __('Description'))->rules('required');
-        $form->textarea('description_ar', __('Description Ar'))->rules('required');
+        // $form->textarea('description_ar', __('Description Ar'))->rules('required');
         $form->text('app_version', __('App Version'))->rules('required');
         $form->textarea('address', __('Address'))->rules('required');
 
