@@ -28,14 +28,14 @@ class CustomerNotificationController extends AdminController
         $grid = new Grid(new CustomerNotification());
 
         $grid->column('id', __('Id'));
-        $grid->column('destination_id', __('Destination '))->display(function($customers){
-            if($customers == 0){
-            return "NILL";
-            }else{
-                $customers = Customer::where('id',$customers)->value('customer_name');
-            return $customers;
-            }
-        });
+        // $grid->column('destination_id', __('Destination '))->display(function($customers){
+        //     if($customers == 0){
+        //     return "NILL";
+        //     }else{
+        //         $customers = Customer::where('id',$customers)->value('customer_name');
+        //     return $customers;
+        //     }
+        // });
         $grid->column('title', __('Title'));
         //$grid->column('description', __('Description'));
         $grid->column('image', __('Image'))->image();
@@ -51,7 +51,7 @@ class CustomerNotificationController extends AdminController
          $customers = Customer::pluck('customer_name', 'id');
 
          $filter->like('title', __('Title'));
-         $filter->equal('destination_id', __('Destination '))->select($customers);
+        //  $filter->equal('destination_id', __('Destination '))->select($customers);
          
         });
 
@@ -93,15 +93,16 @@ class CustomerNotificationController extends AdminController
         $customers = Customer::pluck('customer_name','id');
 
 
-        $form->select('destination_id', __('Destination'))->options($customers);
+        // $form->select('destination_id', __('Destination'))->options($customers);
+        $form->hidden('destination_id')->default(1);
         $form->text('title', __('Title')) ->rules(function ($form) {
             return 'required|max:500';
         });
         $form->textarea('description', __('Description'))->rules('required');
-        $form->text('title_ar', __('Title Ar')) ->rules(function ($form) {
-            return 'required|max:500';
-        });
-        $form->textarea('description_ar', __('Description Ar'))->rules('required');
+        // $form->text('title_ar', __('Title Ar')) ->rules(function ($form) {
+        //     return 'required|max:500';
+        // });
+        // $form->textarea('description_ar', __('Description Ar'))->rules('required');
         $form->image('image', __('Image'))->uniqueName()->move('notifications')->rules('required');
         
         $form->saving(function ($form) {
