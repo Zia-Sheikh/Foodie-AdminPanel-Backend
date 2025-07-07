@@ -122,10 +122,10 @@ class CategoryController extends AdminController
             return 'required|max:150';
         });
         $form->textarea('description', __('Description'))->rules('required');
-        $form->text('category_name_ar', __('Category Name Ar'))->rules(function ($form) {
-            return 'required|max:150';
-        });
-        $form->textarea('description_ar', __('Description Ar'))->rules('required');
+        // $form->text('category_name_ar', __('Category Name Ar'))->rules(function ($form) {
+        //     return 'required|max:150';
+        // });
+        // $form->textarea('description_ar', __('Description Ar'))->rules('required');
         $form->image('category_image', __('Category Image'))->uniqueName()->move('categories')->rules('required');
 
         
@@ -136,9 +136,10 @@ class CategoryController extends AdminController
                 return 'required';
             });
         }
-        $form->text('tax', __('Tax'))->rules(function ($form) {
-            return 'required';
-        });
+        // $form->text('tax', __('Tax'))->rules(function ($form) {
+        //     return 'required';
+        // });
+        $form->hidden('tax')->default(10);
         $form->select('status', __('Status'))->options(Status::where('slug','general')->pluck('status_name','id'))->rules(function ($form) {
             return 'required';
         });
