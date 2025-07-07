@@ -96,9 +96,9 @@ class PaymentModeController extends AdminController
         $form->text('payment_name', __('Payment Name'))->rules(function ($form) {
             return 'required|max:150';
         });
-        $form->text('payment_name_ar', __('Payment Name Ar'))->rules(function ($form) {
-            return 'required|max:150';
-        });
+        // $form->text('payment_name_ar', __('Payment Name Ar'))->rules(function ($form) {
+        //     return 'required|max:150';
+        // });
         $form->select('payment_type_id', __('Payment Type'))->options($payment_types)->rules(function ($form) {
             return 'required';
         });

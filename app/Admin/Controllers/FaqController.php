@@ -96,12 +96,12 @@ class FaqController extends AdminController
         $form->textarea('answer', __('Answer'))->rules(function ($form) {
             return 'required';
         });
-        $form->text('question_ar', __('Question Ar'))->rules(function ($form) {
-            return 'required|max:250';
-        });
-        $form->textarea('answer_ar', __('Answer Ar'))->rules(function ($form) {
-            return 'required';
-        });
+        // $form->text('question_ar', __('Question Ar'))->rules(function ($form) {
+        //     return 'required|max:250';
+        // });
+        // $form->textarea('answer_ar', __('Answer Ar'))->rules(function ($form) {
+        //     return 'required';
+        // });
 
         $form->image('image', __('Image'))->uniqueName()->move('faqs');
         $form->tools(function (Form\Tools $tools) {
