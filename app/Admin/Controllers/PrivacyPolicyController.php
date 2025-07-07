@@ -101,8 +101,8 @@ class PrivacyPolicyController extends AdminController
         });
         $form->text('title', __('Title'))->rules('required');
         $form->textarea('description', __('Description'))->rules('required');
-        $form->text('title_ar', __('Title Ar'))->rules('required');
-        $form->textarea('description_ar', __('Description Ar'))->rules('required');
+        // $form->text('title_ar', __('Title Ar'))->rules('required');
+        // $form->textarea('description_ar', __('Description Ar'))->rules('required');
 
         $form->select('status', __('Status'))->options(Status::where('slug','general')->pluck('status_name','id'))->rules(function ($form) {
             return 'required';

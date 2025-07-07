@@ -139,10 +139,10 @@ class PromoCodeController extends AdminController
             return 'required|max:250';
         });
         $form->textarea('description', __('Description'))->rules('required');
-        $form->text('promo_name_ar', __('Promo Name Ar'))->rules(function ($form) {
-            return 'required|max:250';
-        });
-        $form->textarea('description_ar', __('Description Ar'))->rules('required');
+        // $form->text('promo_name_ar', __('Promo Name Ar'))->rules(function ($form) {
+        //     return 'required|max:250';
+        // });
+        // $form->textarea('description_ar', __('Description Ar'))->rules('required');
         $form->text('promo_code', __('Promo Code'))->rules(function ($form) {
             return 'required|max:250';
         });
