@@ -16,7 +16,7 @@ class RestaurantNotificationController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Restaurant Announcements';
+    protected $title = 'Home Chefs Announcements';
 
     /**
      * Make a grid builder.
@@ -28,14 +28,14 @@ class RestaurantNotificationController extends AdminController
         $grid = new Grid(new RestaurantNotification());
 
         $grid->column('id', __('Id'));
-        $grid->column('destination_id', __('Destination'))->display(function($restaurants){
-            if($restaurants == NULL){
-            return "Null";
-            }else{
-                $restaurants = Restaurant::where('id',$restaurants)->value('restaurant_name');
-            return $restaurants;
-            }
-        });
+        // $grid->column('destination_id', __('Destination'))->display(function($restaurants){
+        //     if($restaurants == NULL){
+        //     return "Null";
+        //     }else{
+        //         $restaurants = Restaurant::where('id',$restaurants)->value('restaurant_name');
+        //     return $restaurants;
+        //     }
+        // });
         $grid->column('title', __('Title'));
         //$grid->column('description', __('Description'));
         $grid->column('image', __('Image'))->image();
@@ -48,7 +48,7 @@ class RestaurantNotificationController extends AdminController
         $restaurants = Restaurant::pluck('restaurant_name', 'id');
 
         $filter->like('title', __('Title'));
-        $filter->equal('destination_id', __('Destination '))->select($restaurants);
+        // $filter->equal('destination_id', __('Destination '))->select($restaurants);
 
         });
         return $grid;
@@ -86,7 +86,8 @@ class RestaurantNotificationController extends AdminController
         $restaurants = Restaurant::pluck('restaurant_name','id');
 
 
-        $form->select('destination_id', __('Destination'))->options($restaurants);
+        // $form->select('destination_id', __('Destination'))->options($restaurants);
+        $form->hidden('destination_id')->default(1);
         $form->text('title', __('Title')) ->rules(function ($form) {
             return 'required|max:500';
         });
