@@ -116,7 +116,7 @@ class CustomerController extends AdminController
             return 'required|max:150';
         });
 
-        // $form->password('password', __('Password'))->rules('required');
+        $form->password('password', __('Password'))->rules('required');
         $form->text('phone_number', __('Phone Number'))->rules(function ($form) {
             return 'numeric|required';
         });
