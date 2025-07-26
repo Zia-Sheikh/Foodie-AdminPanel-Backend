@@ -52,7 +52,7 @@ class CustomerController extends AdminController
     
 
         $grid->disableExport();
-        $grid->disableCreateButton();
+        // $grid->disableCreateButton();
         $grid->actions(function ($actions) {
             $actions->disableView();
         });
