@@ -584,12 +584,26 @@ class CustomerController extends Controller
         $rest = Restaurant::where('id',$input['restaurant_id'])->first();
         $data['max_time'] = $max_time;
         //$data['distance'] = $this->distance($input['lat'],$input['lng'],$rest->lat, $rest->lng, 'K');
-        $distance = $this->get_google_distance($input['lat'],$rest->lat,$input['lng'], $rest->lng);
-        $data['distance'] = $distance['distance'];
-        if(!$data['distance']){
+
+        //zzz
+        // $distance = $this->get_google_distance($input['lat'],$rest->lat,$input['lng'], $rest->lng);
+        // $data['distance'] = $distance['distance'];
+        // if(!$data['distance']){
+        //     $data['distance'] = 0;
+        // }
+        // $data['distance_time'] = $distance['time'];//zzz
+
+        $distance = $this->get_google_distance($input['lat'], $rest->lat, $input['lng'], $rest->lng);
+
+        // Check if $distance is a valid array before accessing its keys
+        if (is_array($distance)) {
+            $data['distance'] = $distance['distance'] ?? 0;
+            $data['distance_time'] = $distance['time'] ?? 0; // Use null coalescing operator for safety
+        } else {
+            // Handle the case where the distance calculation failed
             $data['distance'] = 0;
+            $data['distance_time'] = 0;
         }
-        $data['distance_time'] = $distance['time'];
         
         if($input['lang'] == 'en'){
             $categories = DB::table('restaurant_categories')
